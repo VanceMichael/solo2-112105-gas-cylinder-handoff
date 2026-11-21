@@ -1,0 +1,32 @@
+{
+  "reservations": [
+    {
+      "ref": "班领甲",
+      "station": "S3",
+      "bottle": "C-18",
+      "fill": "F-021",
+      "g": 6200
+    },
+    {
+      "ref": "班领乙",
+      "station": "S3",
+      "bottle": "C-18",
+      "fill": "F-021",
+      "g": 4500
+    },
+    {
+      "ref": "班领丙",
+      "station": "S2",
+      "bottle": "C-33",
+      "fill": "F-020",
+      "g": 3000
+    },
+    {
+      "ref": "班领丁",
+      "station": "S3",
+      "bottle": "C-18",
+      "fill": "F-021",
+      "g": 2000
+    }
+  ]
+}

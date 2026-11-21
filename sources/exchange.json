@@ -1,0 +1,485 @@
+{
+  "releases": [
+    {
+      "name": "首发",
+      "routes": {
+        "/stations/transfers": {
+          "rows": [
+            {
+              "id": "T-A",
+              "lot": "R-A",
+              "station": "S2",
+              "kg": 8,
+              "receivedBy": "N-18"
+            }
+          ],
+          "next": "shift-b"
+        },
+        "/stations/transfers?cursor=shift-b": {
+          "status": 503,
+          "mime": "application/json",
+          "text": "{\"error\":\"交接口暂不可用\"}",
+          "headers": {}
+        },
+        "/plant/ledger": {
+          "rows": [
+            {
+              "id": "N-18",
+              "type": "blend",
+              "inputs": [
+                {
+                  "lot": "R-A",
+                  "kg": 8
+                },
+                {
+                  "lot": "R-B",
+                  "kg": 12
+                }
+              ],
+              "outputs": [
+                {
+                  "lot": "P-11",
+                  "g": 19600
+                }
+              ],
+              "lossG": 400
+            },
+            {
+              "id": "F-021",
+              "type": "fill",
+              "inputs": [
+                {
+                  "lot": "P-11",
+                  "g": 19600
+                }
+              ],
+              "outputs": [
+                {
+                  "station": "S2",
+                  "bottle": "C-17",
+                  "fill": "F-021",
+                  "g": 9000
+                },
+                {
+                  "station": "S3",
+                  "bottle": "C-18",
+                  "fill": "F-021",
+                  "g": 10400
+                }
+              ],
+              "lossG": 200
+            }
+          ],
+          "next": "west"
+        },
+        "/plant/ledger?cursor=west": {
+          "rows": [
+            {
+              "id": "F-020",
+              "type": "fill",
+              "inputs": [
+                {
+                  "lot": "R-Z",
+                  "g": 5210
+                }
+              ],
+              "outputs": [
+                {
+                  "station": "S2",
+                  "bottle": "C-33",
+                  "fill": "F-020",
+                  "g": 5200
+                }
+              ],
+              "lossG": 10
+            }
+          ],
+          "next": null
+        },
+        "/lab/fills/F-021": {
+          "reports": [
+            {
+              "id": "L9",
+              "rev": 1,
+              "scope": [
+                "S2/C-17",
+                "S3/C-18"
+              ],
+              "verdict": "qualified",
+              "file": "/lab/doc/L9-r1",
+              "sha256": "96fcf66702d3026bdc984889ba217611d23ff0ff6439ae0e15d3fd79ba90efeb"
+            }
+          ],
+          "withdrawals": []
+        },
+        "/lab/doc/L9-r1": {
+          "mime": "text/plain; charset=utf-8",
+          "text": "报告 L9-r1\n充装批 F-021；瓶 C-17、C-18\n结论：可领用\n"
+        },
+        "/lab/fills/F-020": {
+          "reports": [
+            {
+              "id": "L0",
+              "rev": 1,
+              "scope": [
+                "S2/C-33"
+              ],
+              "verdict": "qualified",
+              "file": "/lab/doc/L0",
+              "sha256": "8d126c5bbf99cd00346a5a447837a4edb05a3a9f2109982ca4263f41a8a217a1"
+            }
+          ],
+          "withdrawals": []
+        },
+        "/lab/doc/L0": {
+          "mime": "text/plain; charset=utf-8",
+          "text": "L0 F-020 S2/C-33 合格\n"
+        }
+      }
+    },
+    {
+      "name": "补报",
+      "routes": {
+        "/stations/transfers": {
+          "rows": [
+            {
+              "id": "T-A",
+              "lot": "R-A",
+              "station": "S2",
+              "kg": 8,
+              "receivedBy": "N-18"
+            }
+          ],
+          "next": "shift-b"
+        },
+        "/stations/transfers?cursor=shift-b": {
+          "rows": [
+            {
+              "id": "T-A",
+              "lot": "R-A",
+              "station": "S2",
+              "kg": 8,
+              "receivedBy": "N-18"
+            },
+            {
+              "id": "T-B",
+              "lot": "R-B",
+              "station": "S3",
+              "kg": 12,
+              "receivedBy": "N-18"
+            },
+            {
+              "id": "T-Z",
+              "lot": "R-Z",
+              "station": "S2",
+              "kg": 5.21,
+              "receivedBy": "F-020"
+            }
+          ],
+          "next": null
+        },
+        "/plant/ledger": {
+          "rows": [
+            {
+              "id": "N-18",
+              "type": "blend",
+              "inputs": [
+                {
+                  "lot": "R-A",
+                  "kg": 8
+                },
+                {
+                  "lot": "R-B",
+                  "kg": 12
+                }
+              ],
+              "outputs": [
+                {
+                  "lot": "P-11",
+                  "g": 19600
+                }
+              ],
+              "lossG": 400
+            },
+            {
+              "id": "F-021",
+              "type": "fill",
+              "inputs": [
+                {
+                  "lot": "P-11",
+                  "g": 19600
+                }
+              ],
+              "outputs": [
+                {
+                  "station": "S2",
+                  "bottle": "C-17",
+                  "fill": "F-021",
+                  "g": 9000
+                },
+                {
+                  "station": "S3",
+                  "bottle": "C-18",
+                  "fill": "F-021",
+                  "g": 10400
+                }
+              ],
+              "lossG": 200
+            }
+          ],
+          "next": "west"
+        },
+        "/plant/ledger?cursor=west": {
+          "rows": [
+            {
+              "id": "F-020",
+              "type": "fill",
+              "inputs": [
+                {
+                  "lot": "R-Z",
+                  "g": 5210
+                }
+              ],
+              "outputs": [
+                {
+                  "station": "S2",
+                  "bottle": "C-33",
+                  "fill": "F-020",
+                  "g": 5200
+                }
+              ],
+              "lossG": 10
+            }
+          ],
+          "next": null
+        },
+        "/lab/fills/F-021": {
+          "reports": [
+            {
+              "id": "L9",
+              "rev": 1,
+              "scope": [
+                "S2/C-17",
+                "S3/C-18"
+              ],
+              "verdict": "qualified",
+              "file": "/lab/doc/L9-r1",
+              "sha256": "96fcf66702d3026bdc984889ba217611d23ff0ff6439ae0e15d3fd79ba90efeb"
+            }
+          ],
+          "withdrawals": []
+        },
+        "/lab/doc/L9-r1": {
+          "mime": "text/plain; charset=utf-8",
+          "text": "报告 L9-r1\n充装批 F-021；瓶 C-17、C-18\n结论：可领用\n"
+        },
+        "/lab/fills/F-020": {
+          "reports": [
+            {
+              "id": "L0",
+              "rev": 1,
+              "scope": [
+                "S2/C-33"
+              ],
+              "verdict": "qualified",
+              "file": "/lab/doc/L0",
+              "sha256": "8d126c5bbf99cd00346a5a447837a4edb05a3a9f2109982ca4263f41a8a217a1"
+            }
+          ],
+          "withdrawals": []
+        },
+        "/lab/doc/L0": {
+          "mime": "text/plain; charset=utf-8",
+          "text": "L0 F-020 S2/C-33 合格\n"
+        }
+      }
+    },
+    {
+      "name": "更正",
+      "routes": {
+        "/stations/transfers": {
+          "rows": [
+            {
+              "id": "T-A",
+              "lot": "R-A",
+              "station": "S2",
+              "kg": 8,
+              "receivedBy": "N-18"
+            }
+          ],
+          "next": "shift-b"
+        },
+        "/stations/transfers?cursor=shift-b": {
+          "rows": [
+            {
+              "id": "T-A",
+              "lot": "R-A",
+              "station": "S2",
+              "kg": 8,
+              "receivedBy": "N-18"
+            },
+            {
+              "id": "T-B",
+              "lot": "R-B",
+              "station": "S3",
+              "kg": 12,
+              "receivedBy": "N-18"
+            },
+            {
+              "id": "T-Z",
+              "lot": "R-Z",
+              "station": "S2",
+              "kg": 5.21,
+              "receivedBy": "F-020"
+            }
+          ],
+          "next": null
+        },
+        "/plant/ledger": {
+          "rows": [
+            {
+              "id": "N-18",
+              "type": "blend",
+              "inputs": [
+                {
+                  "lot": "R-A",
+                  "kg": 8
+                },
+                {
+                  "lot": "R-B",
+                  "kg": 12
+                }
+              ],
+              "outputs": [
+                {
+                  "lot": "P-11",
+                  "g": 19600
+                }
+              ],
+              "lossG": 400
+            },
+            {
+              "id": "F-021",
+              "type": "fill",
+              "inputs": [
+                {
+                  "lot": "P-11",
+                  "g": 19600
+                }
+              ],
+              "outputs": [
+                {
+                  "station": "S2",
+                  "bottle": "C-17",
+                  "fill": "F-021",
+                  "g": 9000
+                },
+                {
+                  "station": "S3",
+                  "bottle": "C-18",
+                  "fill": "F-021",
+                  "g": 10400
+                }
+              ],
+              "lossG": 200
+            }
+          ],
+          "next": "west"
+        },
+        "/plant/ledger?cursor=west": {
+          "rows": [
+            {
+              "id": "F-020",
+              "type": "fill",
+              "inputs": [
+                {
+                  "lot": "R-Z",
+                  "g": 5210
+                }
+              ],
+              "outputs": [
+                {
+                  "station": "S2",
+                  "bottle": "C-33",
+                  "fill": "F-020",
+                  "g": 5200
+                }
+              ],
+              "lossG": 10
+            },
+            {
+              "id": "F-023",
+              "type": "correction",
+              "replaces": "F-021",
+              "moves": [
+                {
+                  "station": "S3",
+                  "bottle": "C-18",
+                  "fill": "F-023",
+                  "g": 10400
+                }
+              ],
+              "inputLot": "P-11"
+            }
+          ],
+          "next": null
+        },
+        "/lab/fills/F-021": {
+          "reports": [
+            {
+              "id": "L9",
+              "rev": 3,
+              "scope": [
+                "S2/C-17"
+              ],
+              "verdict": "qualified",
+              "file": "/lab/doc/L9-r3",
+              "sha256": "17f3bafe7915f025fa91519f808dce47146a5cd3492632bad15b9cd882259795"
+            }
+          ],
+          "withdrawals": [
+            {
+              "id": "L9",
+              "rev": 1,
+              "scope": [
+                "S2/C-17",
+                "S3/C-18"
+              ]
+            }
+          ]
+        },
+        "/lab/doc/L9-r1": {
+          "mime": "text/plain; charset=utf-8",
+          "text": "报告 L9-r1\n充装批 F-021；瓶 C-17、C-18\n结论：可领用\n"
+        },
+        "/lab/fills/F-020": {
+          "reports": [
+            {
+              "id": "L0",
+              "rev": 1,
+              "scope": [
+                "S2/C-33"
+              ],
+              "verdict": "qualified",
+              "file": "/lab/doc/L0",
+              "sha256": "8d126c5bbf99cd00346a5a447837a4edb05a3a9f2109982ca4263f41a8a217a1"
+            }
+          ],
+          "withdrawals": []
+        },
+        "/lab/doc/L0": {
+          "mime": "text/plain; charset=utf-8",
+          "text": "L0 F-020 S2/C-33 合格\n"
+        },
+        "/lab/fills/F-023": {
+          "reports": [],
+          "withdrawals": []
+        },
+        "/lab/doc/L9-r3": {
+          "mime": "text/plain; charset=utf-8",
+          "text": "报告 L9-r3\n充装批 F-021；瓶 C-17\n结论：可领用\n"
+        }
+      }
+    }
+  ]
+}
